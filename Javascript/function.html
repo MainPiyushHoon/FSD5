@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let add = (a,b) => {
+            return a + b;
+        }
+        let subtract = (a,b) => {
+            return a - b;
+        }
+        
+        let multiply = (a,b) => {
+            return a * b;
+        }
+        let divide = (a,b) => {
+            return a / b;
+        }
+
+        let A = Number(prompt("Enter first number"));
+        let B = Number(prompt("Enter second number"));
+        let op = prompt("Enter operation (add, subtract, multiply, divide)");
+        if (op === "add") {
+            result = add(A,B);
+        } else if (op === "subtract") {
+            result = subtract(A,B);
+        } else if (op === "multiply") {
+            result = multiply(A,B);
+        } else if (op === "divide") {
+            result = divide(A,B);
+        } else {
+            result = "Invalid operation";
+        }
+        document.write("Result: " + result);
+        
+
+    </script>
+
+</body>
+</html>
