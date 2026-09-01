@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment1</title>
+</head>
+<style>
+    #container{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #card{
+        width: 500px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(255, 255, 0);
+        text-align: center;
+        margin-top: 10px
+    }
+
+    #card h2{
+        text-decoration: underline;
+    }
+
+    #card ul{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 32px;
+    }
+    #card ul li{
+        text-align: left;
+        padding-top: 20px;
+        padding-left: 40px;
+    }
+
+    #card button{
+        height: 40px;
+        width: 100px;
+        background-color: lightgreen;
+        border: none;
+        margin-top: 10%;
+        margin-left: 40%;
+    }
+
+    #card button:hover{
+        background-color: green;
+        color: white;
+        cursor: pointer;
+    }
+
+    #card p{
+        font-size: 32px;
+    }
+
+    #card img{
+        margin-top: 10px;
+        height: 100px;
+        width: 100px;
+        margin-left: 40%;
+    }
+
+</style>
+<body>
+    <div id="container">
+        <div id="card">
+            <h2>Online Shop</h2>
+            <ul>
+                <li>Tea - 10</li>
+                <li>Coffee - 20</li>
+                <li>Milk - 10</li>
+                <li>Mojito - 50</li>
+            </ul>
+            <button onclick="buyNow()">Buy Now</button>
+        </div>
+    </div>
+    <script>
+        function buyNow(){
+            let item = prompt("Enter item name");
+            let quantity = Number(prompt("Enter quantity"));
+            let price;
+            let shop = {
+                items: [
+                {
+                    name: "Tea",
+                    price: 10,
+                    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo5LQjgqcoiwupYCg9-aEvTqL8zFfh6Ozo7zDPyUxawd9DJPgaPk1POP4uW-4JbR3v8JUhPQt5Bq8r0MM7eGxJaHi6EfEgnX04OZSqVmyE8A&s=10"
+                },
+                {
+                    name: "Coffee",
+                    price: 20,
+                    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-R5bvrDnm0D6d4z5dJw4tjEhDf_U8tVhkKfiTTLx6Aw&s=10"
+                },
+                {
+                    name: "Milk",
+                    price: 10,
+                    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM7voQRZOSMmcS-3QMPMdHLuCjirGaKvMmscEJ42leIQ&s"
+                },
+                {
+                    name: "Mojito",
+                    price: 50,
+                    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp3tL1X6xUVTCMQ3RUSm4li_4LImDqvNWej9yMfH5UQw&s=10"
+                }
+            ]
+        }
+        card = document.getElementById("card");
+        card.innerHTML = "";
+        for (let i = 0; i < shop.items.length; i++) {
+            if (shop.items[i].name.toLowerCase() == item.toLowerCase()) {
+                price = shop.items[i].price;
+                let total = price * quantity;
+                card.innerHTML += "<h2>Order Summary</h2>";
+                card.innerHTML += "<img src='" + shop.items[i].img + "' width='50px' height='50px'>";
+                card.innerHTML += "<p>Item: " + shop.items[i].name + "</p>";
+                card.innerHTML += "<p>Price: " + shop.items[i].price + "</p>";
+                card.innerHTML += "<p>Total: " + total + "</p>";
+            }
+        }
+    }
+    </script>
+</body>
+</html>
