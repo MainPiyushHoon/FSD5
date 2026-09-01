@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Callback Hell
+        function add(a,b){
+            return a + b;
+        }
+
+        function sumWithMessage(clbk, msg){
+            const result = clbk(10,20);
+            const fresult = "Hi " + msg + " your score is: " + result;
+            console.log(fresult);
+        }
+        
+        sumWithMessage(add, "Rohit");
+    </script>
+</body>
+</html>
