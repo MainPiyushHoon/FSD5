@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        #container{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #card{
+            width: 600px;
+            height: 800px;
+            background-color: rgb(151, 8, 222);
+            border: 2px solid black;
+        }
+        #title{
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #title p{
+            font-size: 32px;
+            font-family: 'Courier New', Courier, monospace
+        }
+        #UserInfoBar{
+            background-color: violet;
+            height: 30px;
+            width: 75%;
+            margin-left: 12.5%;
+            display: flex;
+            border: 2px solid black;
+            justify-content: center;
+            align-items: center;
+        }
+        #UserInfoBar p{
+            font-size: 20px;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #UserInfo{
+            height: 250px;
+            display: flex;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            box-sizing: border-box;
+        }
+        #UserInfo table{
+            height: 100%;
+            width: 100%;
+        }
+        #UserInfo form{
+            margin-left: 10%;
+            margin-top: 5%;
+            justify-content: left;
+        }
+        #UserInfo input{
+            height: 20px;
+            width: 250px;
+        }
+        #BusInfo{
+            height: 150px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+        }
+        #BusInfoForm{
+            margin-left: 10%;
+            margin-top: 5%;
+        }
+        #Submit{
+            height: 30px;
+            width: 100px;
+            background-color: lightblue;
+            border: 1px solid black;
+            margin-left: 40%;
+            margin-top: 10px;
+        }
+        #Submit:hover{
+            background-color: rgb(97, 97, 231);
+            color: white;
+            cursor: pointer;
+        }
+        #input{
+            box-sizing: border-box;
+        }
+    </style>
+<body>
+    <div id = container>
+        <div id = card>
+            <div id = "title">
+                <img src = "/bus.png" alt = "bus" height = 100px width = 120px>
+                <p> Bus Booking System</p>
+            </div>
+            <div id = "UserInfoBar">
+                <p> USER INFORMATION</p>
+            </div>
+            <div id = "UserInfo">
+            <form>
+                <table>
+                    <tr>
+                        <td>User Name:</td>
+                        <td><input type = "text" name = "name" placeholder = "Enter your name"></td>
+                    </tr>
+                    <tr>
+                        <td>User Age:</td>
+                        <td><input type = "text" name = "age" placeholder = "Enter your age"></td>
+                    </tr>
+                    <tr>
+                        <td>User Aadhar No:</td>
+                        <td><input type = "text" name = "aadhar" placeholder = "Enter your aadhar number"></td>
+                    </tr>
+                    <tr>
+                        <td>Select your city:</td>
+                     <td>
+                        <select name = "city">
+                        <option value = "Delhi">Delhi</option>
+                        <option value = "Mumbai">Mumbai</option>
+                        <option value = "Bangalore">Bangalore</option>
+                        <option value = "Chennai">Chennai</option>
+                        <option value = "Kolkata">Kolkata</option>
+                        <option value = "Hyderabad">Hyderabad</option>
+                        <option value = "Gujarat">Gujarat</option>
+                        <option value = "Punjab">Punjab</option>
+                        <option value = "Rajasthan">Rajasthan</option>
+                        <option value = "Lucknow">Lucknow</option>
+                        </select>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td>Journey Date:</td> 
+                        <td><input type = "date" name = "date"></td>
+                    </tr>
+                </table>
+            </div>
+            <div id = UserInfoBar>
+                <p> BUS INFORMATION</p>
+            </div>
+            <div id = "BusInfo">
+                <div id = BusInfoForm>
+                <input type = "radio" name = "type" value = "2000"> AC Bus, 2000<br><br>
+                <input type = "radio" name = "type" value = "1500"> Non-AC Bus, 1500<br><br>
+                Select Number of Seats: <select name = "seats">
+                    <option value = "1">1</option>
+                    <option value = "2">2</option>
+                    <option value = "3">3</option>
+                    <option value = "4">4</option>
+                    <option value = "5">5</option>
+                </select><br><br>
+                </div>    
+            </div>
+            <input id="Submit" type = "submit" value = "Book Now">
+            </form>
+        </div>
+    </div>
+    <script>
+        const submitButton = document.getElementById("Submit");
+        submitButton.addEventListener("click", function(event){
+            event.preventDefault();
+            const name = document.querySelector("input[name='name']").value;
+            const age = document.querySelector("input[name='age']").value;
+            const aadhar = document.querySelector("input[name='aadhar']").value;
+            const city = document.querySelector("select[name='city']").value;
+            const date = document.querySelector("input[name='date']").value;
+            const busType = document.querySelector("input[name='type']:checked");
+            const seats = document.querySelector("select[name='seats']").value;
+
+            if(!busType){
+                alert("Please select a bus type.");
+                return;
+            }
+
+            const busPrice = busType.value;
+            const totalPrice = busPrice * seats;
+
+        });
+    </script>
+</body>
+</html>
