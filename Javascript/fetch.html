@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY SHOP</title>
+</head>
+<style>
+    #container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #box{
+        width: 80%;
+        display: flex;
+        background-color: pink;
+    }
+
+    /* #Card{
+        width: 500px;
+        height: 500px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    } */
+    #table{
+        width: 100%;
+        margin: auto;
+        padding: 10px;
+        font-size: 25px;
+        color: black;
+        border: 2px solid black;
+        border-collapse: collapse;
+        border-radius: 10px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    #table th{
+        border: 2px solid black;
+        padding: 10px;
+    }
+
+
+    #table tbody td{
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+    }
+
+    #table tbody td img{
+        width: 100px;
+        height: 100px;
+    }
+
+
+</style>
+<body>
+    <div id="container">
+        <div id="box">
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>S.NO</th>
+                        <th>Title</th>
+                        <th>Image</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="data">
+                </tbody>
+            </table>
+            <!-- <div id="Card">
+                <div id="CardHeader">
+                    
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <script>
+        const ele = document.getElementById("data");
+        const url = "https://dummyjson.com/products";
+        const url2 = "https://fakestoreapi.com/products";
+        async function loadData(){
+            try{
+
+                const res = await fetch(url);
+                const data = await res.json();
+                let row = "";
+                data.products.map((item, index) => {
+                    row += `<tr>
+                                <td>${index + 1}</td>
+                                <td>${item.title}</td>
+                                <td><img src="${item.thumbnail}"></td>
+                                <td>${item.category}</td>
+                                <td>${item.price}</td>
+                            </tr>`;
+                });
+                
+                ele.innerHTML = row;
+            }
+            catch(ErrorSinghChotopadhyay){
+                console.log("Error: ", ErrorSinghChotopadhyay);
+            }
+        }
+
+    loadData();
+    </script>
+</body>
+</html>
