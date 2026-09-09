@@ -18,6 +18,17 @@
         background-color: pink;
     }
 
+    #title{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 32px;
+        font-family: 'Courier New', Courier, monospace;
+
+    }
+
     /* #Card{
         width: 500px;
         height: 500px;
@@ -25,7 +36,8 @@
         flex-direction: row;
         justify-content: space-between;
     } */
-    #table{
+
+    /* #table{
         width: 100%;
         margin: auto;
         padding: 10px;
@@ -51,13 +63,13 @@
     #table tbody td img{
         width: 100px;
         height: 100px;
-    }
+    } */
 
 
 </style>
 <body>
     <div id="container">
-        <div id="box">
+        <!-- <div id="box">
             <table id="table">
                 <thead>
                     <tr>
@@ -71,42 +83,20 @@
                 <tbody id="data">
                 </tbody>
             </table>
-            <!-- <div id="Card">
-                <div id="CardHeader">
-                    
-                </div>
-            </div> -->
+        </div>  -->
+        <div id="title">
+            MY SHOP
+        </div>
+        <div id="Boxes">
+
         </div>
     </div>
 
+
     <script>
-        const ele = document.getElementById("data");
         const url = "https://dummyjson.com/products";
-        const url2 = "https://fakestoreapi.com/products";
-        async function loadData(){
-            try{
-
-                const res = await fetch(url);
-                const data = await res.json();
-                let row = "";
-                data.products.map((item, index) => {
-                    row += `<tr>
-                                <td>${index + 1}</td>
-                                <td>${item.title}</td>
-                                <td><img src="${item.thumbnail}"></td>
-                                <td>${item.category}</td>
-                                <td>${item.price}</td>
-                            </tr>`;
-                });
-                
-                ele.innerHTML = row;
-            }
-            catch(ErrorSinghChotopadhyay){
-                console.log("Error: ", ErrorSinghChotopadhyay);
-            }
-        }
-
-    loadData();
+        const ele = document.getElementById("Boxes");
+        
     </script>
 </body>
 </html>
