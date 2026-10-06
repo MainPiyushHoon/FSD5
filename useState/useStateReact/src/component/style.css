@@ -1,0 +1,17 @@
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.button{
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 8px 16px;
+    width: 30px;
+    height: 30px;
+}
+
+#button-adder{
+    background-color: var(--button-add);
+    color: var(--button-add-text);
+}
